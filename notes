@@ -1,0 +1,62 @@
+## Class 1
+
+Android Files Structure :
+res -> has all resourse files that we need such as strings, layouts, colors, and much more
+manifest -> has the all android application configration and also premissions and access mobile hardware
+gradle -> generate the apk
+*the activity and layout connected via process known as layout inflaction
+*during the inflation process the views in the XML file become view objects in memory
+*the activity is responisble for the interactive parts of the app
+App Compat Activity -> it's a class that gives us access to modern android features
+*setContentView -> it's specify which layout associated with the activity and it's also inflate it
+*Linear Layout -> known as a view group
+*the orientation of the linear layout by default is horizontall
+*sp -> scale independent pixels (used for text)
+*tools namespase -> use when you want to define dummy content that it only use when you previewing the app in the preview pane
+\*tools attributes-> removed when you actually compiled the app
+
+## Class 2
+
+dp -> independent pixel (it's a unit for making responsive apps)
+create a style by clicking on the view and then select refactor then extract style and this will create a style looking that makes you do not repeat your code
+scrollView -> can only has one child
+layout_gravity -> attributes according to the layout
+gravity -> attributes according to the actual view
+*Binding Object is created by the compiler when you wrap your xml file with <layout> and the name is derived from the name of the xml file + Binding
+*DataBindingUtil.setContentView() = setContentView() -> the two ways used to inflates and sets the layout for the current activity but the difference that the first one create a binding object that can make you access to the views quickly
+-> fragment_title => FragmentTitleBinding
+\*safeArgs -> can help with passing data through fragments
+
+## Class 3
+
+*Each Activity can hold more than fragment
+*the activity operates as a frame that contains the UI fragment and can provide UI elements that surround the fragment
+*nav host fragment => swaps the fragments in and out as nessessary (controll the stack and the showen fragment)
+*inclusive flag will also pop the target screen
+*PopTo Not-Inclusive -> Pops off everything on the back stack until it finds the referenced fragment transaction.
+*PopTo Inclusive -> Pops off everything on the back stack, including the referenced fragment transaction.
+*Intent used to navigate between activities and it has two types implicit and explicit => explicit used to navigate and share data between activites within the app
+and implicit used to navigate and share data between activites with other apps
+*menuId must be equal to fragment id in the nav grave to do the navigation correctly
+
+## Class 4
+
+The Activity Lifecycle -> initialized, created, started, resumed, destroyed
+The Activity Lifecycle callbacks -> onCreate, onStart, onResume, onDestroy, onPause, onStop, onRestart
+
+onCreate -> called once the activity is created but not yet visible and used to do any one type initializations
+Application Class -> The Application class is a base class within an Android app that contains global application state for the entire app. It is always running as long as your app is running, even if there are no activities or fragments currently in use.
+The Application class is used to maintain global application state, such as initializing libraries, setting up a database connection, or initializing a network connection. It is also used to store data that needs to be accessed by multiple activities or fragments within the app.
+
+\*onDestroy -> called when an activity is being destroyed and removed from memory by the garbage collector.
+*onStart -> called when an activity becomes visible
+*onStop -> called when an activity goes off from the screen
+*onResume, onPause -> the focus area
+*onResume -> called when you currently interacting with the activity (has focus)
+*onPause -> called when the activity loss it's focus (has focus) -> incoming call
+*onRestart -> onRestart = onCreate -> but not the first time as onCreate
+watch for any change = 'observe'
+*onSaveInstanseState => to save some data when the OS destroy your app (not u that will destroy it's the OS)
+*onSaveInstanseState -> called when onStopCalled
+*Bundle -> is a collection of key value pairs (HashMap)
+*the data that u save in the bundle of onSaveInstanseState callback
